@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mochamad Ridwan — Scholar · Author · Developer · Entrepreneur</title>
+<meta name="description" content="Mochamad Ridwan, A.Md., B.A (Lc) — Ulama, Penulis Kitab, IT Developer, dan Entrepreneur dari Bandung, Indonesia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --gold-dark: #8B6914;
+    --ink: #0D0D0D;
+    --ink-soft: #1A1A1A;
+    --parchment: #F5F0E8;
+    --parchment-dark: #EDE5D4;
+    --cream: #FAF7F2;
+    --emerald: #1B4332;
+    --emerald-light: #2D6A4F;
+    --text-muted: #6B6356;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--parchment);
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(13,13,13,0.95), transparent);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s, color 0.3s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 4rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    border: 1px solid rgba(201,169,110,0.3);
+    padding: 0.4rem 1rem;
+    margin-bottom: 2.5rem;
+    width: fit-content;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-title-line {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-title-line::before,
+  .hero-title-line::after {
+    content: '';
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dark));
+    flex: 1;
+  }
+  .hero-title-line::after {
+    background: linear-gradient(to left, transparent, var(--gold-dark));
+  }
+
+  .hero-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.75);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--gold-light);
+    border-left: 2px solid var(--gold-dark);
+    padding-left: 1.2rem;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    opacity: 0.85;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    padding: 0.9rem 2rem;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(201,169,110,0.5);
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.3s, background 0.3s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); background: rgba(201,169,110,0.07); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1A1410 0%, #0D2E1B 40%, #0D1810 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(27,67,50,0.4) 0%, transparent 50%);
+  }
+
+  .hero-geometric {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .geo-circle {
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 50%;
+    position: absolute;
+    animation: rotate-slow 30s linear infinite;
+  }
+
+  .geo-circle:nth-child(2) {
+    width: 420px;
+    height: 420px;
+    border-color: rgba(201,169,110,0.1);
+    animation-duration: 45s;
+    animation-direction: reverse;
+  }
+
+  .geo-circle:nth-child(3) {
+    width: 260px;
+    height: 260px;
+    border-color: rgba(201,169,110,0.15);
+    border-style: dashed;
+    animation-duration: 20s;
+  }
+
+  .geo-arabic {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 6rem;
+    color: rgba(201,169,110,0.12);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-weight: 300;
+  }
+
+  .hero-photo-frame {
+    width: 280px;
+    height: 360px;
+    border: 1px solid rgba(201,169,110,0.3);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: rgba(201,169,110,0.4);
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .photo-icon { font-size: 2rem; opacity: 0.5; }
+
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Ornament corner */
+  .hero-corner {
+    position: absolute;
+    width: 60px; height: 60px;
+  }
+  .hero-corner.tl { top: 2rem; left: 2rem; border-top: 1px solid var(--gold-dark); border-left: 1px solid var(--gold-dark); }
+  .hero-corner.br { bottom: 2rem; right: 2rem; border-bottom: 1px solid var(--gold-dark); border-right: 1px solid var(--gold-dark); }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 7rem 4rem; }
+
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background: var(--gold-dark);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--ink-soft);
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(245,240,232,0.75);
+    margin-bottom: 1.2rem;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .stat-item {
+    border-left: 2px solid var(--gold-dark);
+    padding-left: 1.2rem;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .about-motto {
+    background: linear-gradient(135deg, rgba(27,67,50,0.4), rgba(201,169,110,0.05));
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .about-motto::before {
+    content: '❝';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: rgba(201,169,110,0.15);
+    position: absolute;
+    top: 1rem; left: 2rem;
+    line-height: 1;
+  }
+
+  .about-motto blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-motto cite {
+    display: block;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-dark);
+    margin-top: 1.5rem;
+  }
+
+  /* ── EDUCATION ── */
+  .education {
+    background: var(--ink);
+  }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  .edu-card {
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 2.5rem;
+    position: relative;
+    transition: border-color 0.4s;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent);
+  }
+
+  .edu-card:hover { border-color: rgba(201,169,110,0.5); }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(to right, var(--gold-dark), transparent);
+  }
+
+  .edu-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .edu-institution {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .edu-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .edu-badge {
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(201,169,110,0.1);
+    border: 1px solid rgba(201,169,110,0.3);
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+  }
+
+  /* ── KARYA ── */
+  .karya {
+    background: linear-gradient(to bottom, var(--ink-soft), var(--ink));
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .book-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+  }
+
+  .book-3d {
+    width: 220px;
+    height: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(-20deg) rotateX(5deg);
+    transition: transform 0.6s ease;
+    cursor: pointer;
+  }
+
+  .book-3d:hover {
+    transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);
+  }
+
+  .book-front {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1B4332 0%, #0D2E1B 60%, #0A1F12 100%);
+    border: 1px solid rgba(201,169,110,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .book-front::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .book-front-ornament {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0.8rem auto;
+  }
+
+  .book-title-ar {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    direction: rtl;
+  }
+
+  .book-title-id {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+
+  .book-author {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    color: rgba(201,169,110,0.6);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .book-spine {
+    position: absolute;
+    top: 0; left: -30px;
+    width: 30px; height: 100%;
+    background: linear-gradient(to right, #0A1F12, #1B4332);
+    border-left: 1px solid rgba(201,169,110,0.3);
+    border-top: 1px solid rgba(201,169,110,0.3);
+    border-bottom: 1px solid rgba(201,169,110,0.3);
+    transform-origin: right center;
+  }
+
+  .book-shadow {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    right: 20px;
+    height: 40px;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.6), transparent 70%);
+    filter: blur(15px);
+    z-index: -1;
+  }
+
+  .book-glow {
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(ellipse at center, rgba(201,169,110,0.08), transparent 60%);
+    pointer-events: none;
+  }
+
+  .karya-content .topics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin: 2rem 0;
+  }
+
+  .topic-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: rgba(245,240,232,0.7);
+    padding: 0.5rem 0;
+  }
+
+  .topic-item::before {
+    content: '◆';
+    color: var(--gold-dark);
+    font-size: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  /* ── PORTFOLIO ── */
+  .portfolio {
+    background: var(--ink);
+  }
+
+  .portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .portfolio-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    padding: 0.45rem 1rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: rgba(201,169,110,0.1);
+    color: var(--gold);
+    border-color: rgba(201,169,110,0.3);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+  }
+
+  .portfolio-item {
+    aspect-ratio: 4/3;
+    background: var(--ink-soft);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .portfolio-item.wide { grid-column: span 2; }
+  .portfolio-item.tall { grid-row: span 2; }
+
+  .portfolio-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s ease;
+  }
+
+  .portfolio-item:hover .portfolio-bg { transform: scale(1.05); }
+
+  .bg-emerald { background: linear-gradient(135deg, #0D2E1B, #1B4332); }
+  .bg-navy { background: linear-gradient(135deg, #0D1A2E, #1B2D4F); }
+  .bg-burgundy { background: linear-gradient(135deg, #2E0D0D, #4F1B1B); }
+  .bg-slate { background: linear-gradient(135deg, #151520, #252535); }
+  .bg-forest { background: linear-gradient(135deg, #0D1E0D, #1B3A1B); }
+  .bg-midnight { background: linear-gradient(135deg, #0D0D1E, #1B1B3A); }
+
+  .portfolio-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(201,169,110,0.3) 20px,
+      rgba(201,169,110,0.3) 21px
+    );
+  }
+
+  .portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,13,13,0.95) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.8rem;
+    transform: translateY(30%);
+    transition: transform 0.4s ease;
+  }
+
+  .portfolio-item:hover .portfolio-overlay { transform: translateY(0); }
+
+  .portfolio-cat {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .portfolio-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .portfolio-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    transition: opacity 0.4s 0.1s;
+  }
+
+  .portfolio-item:hover .portfolio-tags { opacity: 1; }
+
+  .tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(201,169,110,0.3);
+    color: rgba(201,169,110,0.7);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .portfolio-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    font-size: 3rem;
+    opacity: 0.15;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .portfolio-item:hover .portfolio-icon {
+    opacity: 0.06;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  /* ── DAKWAH ── */
+  .dakwah {
+    background: linear-gradient(to bottom right, var(--ink-soft), #0D1810);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .dakwah::before {
+    content: 'ﷲ';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20rem;
+    color: rgba(201,169,110,0.03);
+    pointer-events: none;
+  }
+
+  .dakwah-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 4rem;
+    align-items: center;
+  }
+
+  .ayatuna-card {
+    background: linear-gradient(135deg, rgba(27,67,50,0.3), rgba(13,13,13,0.5));
+    border: 1px solid rgba(201,169,110,0.25);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ayatuna-card::after {
+    content: '';
+    position: absolute;
+    top: -50%; right: -30%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(201,169,110,0.05), transparent 70%);
+    pointer-events: none;
+  }
+
+  .ayatuna-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .ayatuna-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--gold-dark);
+    margin-bottom: 1.8rem;
+  }
+
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.75);
+  }
+
+  .feature-list li::before {
+    content: '▸';
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  .dakwah-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.7);
+  }
+
+  /* ── SCABIO ── */
+  .scabio {
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .scabio-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+  }
+
+  .scabio-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #2D6A4F, #0D2E1B 60%, #050F08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 80px rgba(45,106,79,0.3), inset 0 0 60px rgba(0,0,0,0.5);
+  }
+
+  .scabio-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(27,67,50,0.4);
+  }
+
+  .scabio-ring:nth-child(1) { width: 360px; height: 360px; }
+  .scabio-ring:nth-child(2) { width: 430px; height: 430px; border-style: dashed; animation: rotate-slow 25s linear infinite; }
+  .scabio-ring:nth-child(3) { width: 500px; height: 500px; border-color: rgba(201,169,110,0.08); }
+
+  .scabio-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .scabio-brand span {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    font-style: normal;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    margin-top: 0.3rem;
+  }
+
+  .scabio-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: rgba(245,240,232,0.7);
+    margin-bottom: 2rem;
+  }
+
+  .herb-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .herb-tag {
+    padding: 0.4rem 0.9rem;
+    background: rgba(27,67,50,0.3);
+    border: 1px solid rgba(45,106,79,0.4);
+    font-size: 0.75rem;
+    color: #52b788;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--ink-soft);
+    text-align: center;
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(201,169,110,0.05), transparent 60%);
+    pointer-events: none;
+  }
+
+  .contact .section-label { justify-content: center; }
+  .contact .section-label::after { display: none; }
+  .contact .section-label::before { content: ''; height: 1px; width: 60px; background: var(--gold-dark); }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(201,169,110,0.2);
+    color: var(--gold-light);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    transition: all 0.3s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--gold);
+    background: rgba(201,169,110,0.07);
+    color: var(--gold);
+  }
+
+  .contact-location {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 2rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080808;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,169,110,0.1);
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-dark);
+  }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(107,99,86,0.6);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-motto {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(201,169,110,0.4);
+  }
+
+  /* ── DIVIDER ── */
+  .ornament-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    color: var(--gold-dark);
+    opacity: 0.5;
+  }
+
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: '';
+    height: 1px;
+    width: 100px;
+    background: linear-gradient(to right, transparent, var(--gold-dark));
+  }
+
+  .ornament-divider::after {
+    background: linear-gradient(to left, transparent, var(--gold-dark));
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-line {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 2;
+  }
+
+  .scroll-line-bar {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--gold);
+    animation: slide-right 2s ease-in-out infinite;
+  }
+
+  @keyframes slide-right {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  .scroll-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    color: var(--gold-dark);
+    writing-mode: horizontal-lr;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { gap: 1.5rem; }
+
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 7rem 2rem 4rem; }
+
+    section { padding: 5rem 2rem; }
+
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .karya { grid-template-columns: 1fr; gap: 3rem; }
+    .dakwah-grid { grid-template-columns: 1fr; }
+    .scabio { grid-template-columns: 1fr; gap: 3rem; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-item.wide { grid-column: span 1; }
+
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .portfolio-header { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-item.wide { grid-column: span 1; }
+    .hero-name { font-size: 2.4rem; }
+  }
+
+  /* ── FADE IN ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">MR</a>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#pendidikan">Pendidikan</a></li>
+    <li><a href="#karya">Karya Tulis</a></li>
+    <li><a href="#portfolio">Portofolio IT</a></li>
+    <li><a href="#dakwah">Dakwah Digital</a></li>
+    <li><a href="#scabio">Scabio</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">✦ Scholar · Developer · Entrepreneur</div>
+    <h1 class="hero-name">Mochamad<br><em>Ridwan</em></h1>
+    <div class="hero-title-line">A.Md., B.A (Lc)</div>
+    <p class="hero-desc">
+      Lulusan Politeknik Mekanis Swiss ITB Bandung dan Universitas Jamiatud Daulatil Maftuhah Gambia — Lulusan Terbaik dan Tercepat. Penulis Kitab, Developer IT, dan Founder berbagai inisiatif pendidikan, dakwah digital, dan bisnis herbal.
+    </p>
+    <div class="hero-quote">
+      "Tidak hanya membangun sistem, tetapi juga membangun peradaban melalui ilmu, teknologi, dan dakwah."
+    </div>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn-primary">Portofolio IT</a>
+      <a href="#karya" class="btn-outline">Karya Tulis</a>
+      <a href="#kontak" class="btn-outline">Hubungi Saya</a>
+    </div>
+    <div class="scroll-line">
+      <div class="scroll-line-bar"></div>
+      <span class="scroll-text">SCROLL</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-placeholder">
+      <div class="hero-geometric">
+        <div class="geo-circle"></div>
+        <div class="geo-circle"></div>
+        <div class="geo-circle"></div>
+        <div class="geo-arabic">بِسۡمِ ٱللَّهِ</div>
+      </div>
+      <div class="hero-photo-frame">
+        <span class="photo-icon">⬜</span>
+        <span>FOTO PROFESIONAL</span>
+      </div>
+      <div class="hero-corner tl"></div>
+      <div class="hero-corner br"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="tentang">
+  <div class="about-text fade-in">
+    <div class="section-label">Tentang Saya</div>
+    <h2 class="section-title">Mengintegrasikan<br><em>Ilmu & Teknologi</em></h2>
+    <p>Saya adalah seorang pengembang teknologi, penulis, pendidik, dan entrepreneur yang memiliki perhatian besar terhadap pendidikan Islam, pengembangan teknologi, kesehatan herbal, dan transformasi digital.</p>
+    <p>Perjalanan pendidikan teknik dan studi Islam internasional membentuk visi untuk mengintegrasikan ilmu syariah dengan teknologi modern demi kemanfaatan umat yang lebih luas.</p>
+    <div class="about-stats">
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Proyek IT Selesai</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Kitab Diterbitkan</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Perguruan Tinggi</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Inisiatif Founder</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-motto fade-in">
+    <blockquote>
+      "Ilmu sebagai cahaya, teknologi sebagai sarana, dan dakwah sebagai jalan pengabdian."
+      <cite>— Mochamad Ridwan, A.Md., B.A (Lc)</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="pendidikan">
+  <div class="fade-in">
+    <div class="section-label">Riwayat Pendidikan</div>
+    <h2 class="section-title">Fondasi <em>Ilmu</em><br>yang Kuat</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card fade-in">
+      <span class="edu-icon">⚙️</span>
+      <div class="edu-institution">Politeknik Mekanis Swiss — ITB Bandung</div>
+      <div class="edu-degree">A.Md. — Teknik & Teknologi</div>
+      <p class="edu-desc">Pendidikan teknik dan teknologi yang membentuk kemampuan analitis, sistematis, serta pengembangan solusi berbasis teknologi modern.</p>
+      <span class="edu-badge">Bandung, Indonesia</span>
+    </div>
+    <div class="edu-card fade-in">
+      <span class="edu-icon">🕌</span>
+      <div class="edu-institution">Universitas Jamiatud Daulatil Maftuhah — Gambia</div>
+      <div class="edu-degree">B.A (Lc) — Ilmu Syariah & Keislaman</div>
+      <p class="edu-desc">Mendalami ilmu-ilmu syariah, Al-Qur'an, bahasa Arab, dan berbagai disiplin keislaman sebagai fondasi dakwah dan pendidikan Islam internasional.</p>
+      <span class="edu-badge">🏆 Lulusan Terbaik & Tercepat</span>
+    </div>
+  </div>
+</section>
+
+<!-- KARYA TULIS -->
+<section class="karya" id="karya">
+  <div class="book-visual fade-in">
+    <div class="book-glow"></div>
+    <div class="book-3d">
+      <div class="book-spine"></div>
+      <div class="book-front">
+        <div class="book-title-ar">شرح تحفة الأطفال والغلمان</div>
+        <div class="book-front-ornament"></div>
+        <div class="book-title-id">Syarah Tuhfatul Athfal<br>wal Ghilman</div>
+        <div class="book-front-ornament"></div>
+        <div class="book-author">Moch. Ridwan, A.Md., B.A.</div>
+      </div>
+    </div>
+    <div class="book-shadow"></div>
+  </div>
+  <div class="karya-content fade-in">
+    <div class="section-label">Karya Tulis</div>
+    <h2 class="section-title">Kitab <em>Syarah</em><br>Tuhfatul Athfal</h2>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:300; line-height:1.85; color:rgba(245,240,232,0.7); margin-bottom:1rem;">
+      Kitab syarah yang menjelaskan kaidah ilmu tajwid secara sistematis, mendalam, dan mudah dipahami — memadukan metode ilmiah dengan pendekatan yang aksesibel bagi pelajar Al-Qur'an.
+    </p>
+    <div class="topics">
+      <div class="topic-item">Hukum Nun Sukun & Tanwin</div>
+      <div class="topic-item">Hukum Mim Sukun</div>
+      <div class="topic-item">Mad & Pembagiannya</div>
+      <div class="topic-item">Makharijul Huruf</div>
+      <div class="topic-item">Sifat Huruf</div>
+      <div class="topic-item">Praktik Tajwid Al-Qur'an</div>
+    </div>
+    <a href="#" class="btn-primary">Lihat Detail Kitab</a>
+  </div>
+</section>
+
+<!-- PORTFOLIO IT -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header fade-in">
+    <div>
+      <div class="section-label">Portofolio IT</div>
+      <h2 class="section-title">Solusi Digital<br><em>Inovatif</em></h2>
+    </div>
+    <div class="portfolio-filters">
+      <button class="filter-btn active">Semua</button>
+      <button class="filter-btn">ERP</button>
+      <button class="filter-btn">Pendidikan</button>
+      <button class="filter-btn">Dakwah</button>
+      <button class="filter-btn">AI</button>
+    </div>
+  </div>
+
+  <div class="portfolio-grid fade-in">
+
+    <div class="portfolio-item wide">
+      <div class="portfolio-bg bg-navy"></div>
+      <div class="portfolio-pattern"></div>
+      <div class="portfolio-icon">📊</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">ERP · Trading</div>
+        <div class="portfolio-name">ERP Trading System</div>
+        <div class="portfolio-tags">
+          <span class="tag">Dashboard</span>
+          <span class="tag">Analisis Data</span>
+          <span class="tag">Reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-bg bg-emerald"></div>
+      <div class="portfolio-pattern"></div>
+      <div class="portfolio-icon">🕌</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">Dakwah · Masjid</div>
+        <div class="portfolio-name">Jadwal Shalat Digital</div>
+        <div class="portfolio-tags">
+          <span class="tag">Real Time</span>
+          <span class="tag">Kemenag RI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-bg bg-burgundy"></div>
+      <div class="portfolio-pattern"></div>
+      <div class="portfolio-icon">🏥</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">Kesehatan</div>
+        <div class="portfolio-name">Sistem Informasi Klinik</div>
+        <div class="portfolio-tags">
+          <span class="tag">Rekam Medis</span>
+          <span class="tag">Billing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-bg bg-slate"></div>
+      <div class="portfolio-pattern"></div>
+      <div class="portfolio-icon">🌐</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">ERP · Manajemen</div>
+        <div class="portfolio-name">ERP Country Manager</div>
+        <div class="portfolio-tags">
+          <span class="tag">Multi Branch</span>
+          <span class="tag">KPI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item wide">
+      <div class="portfolio-bg bg-midnight"></div>
+      <div class="portfolio-pattern"></div>
+      <div class="portfolio-icon">🤖</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">AI · Automation</div>
+        <div class="portfolio-name">AI & Automation Projects</div>
+        <div class="portfolio-tags">
+          <span class="tag">Content Generator</span>
+          <span class="tag">Speech to Text</span>
+          <span class="tag">Workflow</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-bg bg-forest"></div>
+      <div class="portfolio-pattern"></div>
+      <div class="portfolio-icon">🎒</div>
+      <div class="portfolio-overlay">
+        <div class="portfolio-cat">Pendidikan</div>
+        <div class="portfolio-name">Sistem Informasi PAUD</div>
+        <div class="portfolio-tags">
+          <span class="tag">Absensi</span>
+          <span class="tag">Penilaian</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DAKWAH DIGITAL -->
+<section class="dakwah" id="dakwah">
+  <div class="fade-in">
+    <div class="section-label">Dakwah Digital</div>
+    <h2 class="section-title">Platform <em>Islami</em><br>Modern</h2>
+  </div>
+  <div class="dakwah-grid">
+    <div class="ayatuna-card fade-in">
+      <div class="ayatuna-logo">Ayatuna</div>
+      <div class="ayatuna-sub">Platform Pembelajaran Al-Qur'an Digital</div>
+      <ul class="feature-list">
+        <li>Al-Qur'an Per Ayat (6.236 ayat)</li>
+        <li>Konten Dakwah Digital</li>
+        <li>Pembelajaran Tajwid Interaktif</li>
+        <li>Short Video Islami (Reels/Stories)</li>
+        <li>Integrasi AI Qur'anic Learning</li>
+        <li>Auto Upload Media Sosial</li>
+      </ul>
+      <a href="#" class="btn-outline" style="margin-top:2rem; display:inline-block;">Selengkapnya</a>
+    </div>
+    <div class="fade-in">
+      <p class="dakwah-desc">
+        Ayatuna hadir sebagai platform pembelajaran Al-Qur'an berbasis media digital, menghadirkan konten per ayat melalui media sosial dan teknologi — memadukan keindahan tilawah dengan teknologi modern untuk dakwah yang lebih luas.
+      </p>
+      <br>
+      <p class="dakwah-desc" style="font-size:1rem; opacity:0.7;">
+        Dengan pendekatan visual modern dan integrasi AI, Ayatuna menjadi jembatan antara generasi muda dan keindahan Al-Qur'an melalui platform digital yang familiar mereka gunakan setiap hari.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SCABIO -->
+<section class="scabio" id="scabio">
+  <div class="scabio-visual fade-in">
+    <div class="scabio-ring"></div>
+    <div class="scabio-ring"></div>
+    <div class="scabio-ring"></div>
+    <div class="scabio-circle">
+      <div class="scabio-brand">
+        Scabio
+        <span>HERBAL · NATURAL · MODERN</span>
+      </div>
+    </div>
+  </div>
+  <div class="fade-in">
+    <div class="section-label">Bisnis Herbal</div>
+    <h2 class="section-title"><em>Scabio</em> Herbal<br>Produsen Modern</h2>
+    <p class="scabio-desc">
+      Scabio adalah brand herbal yang dikembangkan untuk menghadirkan solusi kesehatan berbasis bahan alami dengan pendekatan modern — memadukan kearifan alam dengan standar kualitas terkini.
+    </p>
+    <div class="herb-tags">
+      <span class="herb-tag">🌿 Bahan Alami</span>
+      <span class="herb-tag">⚗️ Formula Modern</span>
+      <span class="herb-tag">✅ Tersertifikasi</span>
+      <span class="herb-tag">🏭 Produksi Sendiri</span>
+    </div>
+    <a href="#" class="btn-primary">Kunjungi Scabio</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontak">
+  <div class="section-label">Kontak</div>
+  <h2 class="section-title" style="margin-bottom:0.5rem;">Mari <em>Berkolaborasi</em></h2>
+  <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:300; color:rgba(245,240,232,0.6); max-width:500px; margin:0 auto 1rem; line-height:1.7;">
+    Terbuka untuk kolaborasi di bidang IT, pendidikan Islam, dakwah digital, dan bisnis herbal.
+  </p>
+  <div class="contact-links">
+    <a href="https://wa.me/62" class="contact-link">📱 WhatsApp</a>
+    <a href="mailto:ridwan@email.com" class="contact-link">✉️ Email</a>
+    <a href="https://linkedin.com" class="contact-link">💼 LinkedIn</a>
+    <a href="https://github.com" class="contact-link">🐙 GitHub</a>
+    <a href="https://youtube.com" class="contact-link">▶️ YouTube</a>
+    <a href="https://instagram.com" class="contact-link">📸 Instagram</a>
+  </div>
+  <p class="contact-location">📍 Bandung, Jawa Barat, Indonesia</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">MOCHAMAD RIDWAN</div>
+  <div class="footer-motto">Ilmu · Teknologi · Dakwah</div>
+  <div class="footer-copy">© 2025 Mochamad Ridwan, A.Md., B.A (Lc)</div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Portfolio filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Smooth nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      if (window.scrollY >= top) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.opacity = link.getAttribute('href') === `#${current}` ? '1' : '0.8';
+      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
